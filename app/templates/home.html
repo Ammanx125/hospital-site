@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Hallelujah Hospital</h1>
+            <p>Your health is our priority</p>
+            <a href="/contact" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+    <section class="hospital-info">
+        <div class="info-card">
+            <h2>24/7 care</h2>
+            <p>We are always here for you!</p>
+        </div>
+        <div class="info-card">
+            <h2>Top Doctors</h2>
+            <p>We have the best medical professionals.</p>
+        </div>
+        <div class="info-card">
+            <h2>Advanced Tech</h2>
+            <p>Equipped with the latest medical equipments</p>
+        </div>
+    </section>
+
+    <section class="appointment">
+        <a href="{{ url_for('general.make_appointment') }}" class="appointment-box-link">
+        <div class="appointment-box">
+            <h2>We make an appointment today</h2>
+            <p>We make it easy for u to get a medical card. Simply click below and get started.</p>
+        </div></a>
+    </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="chat-container">
+    <h2>Doctor & Receptionist</h2>
+
+    <div class="messages">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">
+
+                    <strong>{{ message.sender }}:</strong>
+                    {{ message.text }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No messages yet.</p>
+        {% endif %}
+    </div>
+    <form method="post" action="{{ url_for('chat.chat') }}">
+        <input type="text" name="text" placeholder="Message" required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,399 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f9fd;
+    color: #222;
+}
+nav {
+    background: #007bff;
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.7s ease;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+.container {
+    padding: 2rem;
+}
+
+/* home page */
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    background-color: #062597c8;
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #230707;
+}
+
+/* Hospital Info Cards */
+.hospital-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 2rem;
+}
+
+.info-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+.info-card h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Appointment Section */
+.appointment {
+    background: #f4f9fd;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.appointment h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.appointment p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* login page  */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #eef4fb;
+}
+
+.login-form {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    text-align: center;
+}
+
+.login-form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-form input,
+.login-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.login-form button {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* recepetionist */
+.dashboard-container {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.register-patient, .patient-list {
+    margin-bottom: 2rem;
+}
+
+.register-patient form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-patient label {
+    font-weight: 600;
+    margin-top: 1rem;
+    display: block;
+}
+
+.register-patient input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.register-patient button {
+    padding: 1rem 2rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.register-patient button:hover {
+    background: #0056b3;
+}
+
+.patient-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.patient-list li {
+    padding: 1rem;
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Doctor dashboard */
+.patient-list ul li form {
+    margin-top: 1rem;
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.patient-list textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.patient-list button {
+    padding: 0.8rem 2rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.patient-list button:hover {
+    background: #218838;
+}
+
+
+/* chat  */
+.chat-container {
+    max-width: 600px;
+    margin:  auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.messages {
+    margin-bottom: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.message {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    background: #e1f5fe;
+    border-radius: 6px;
+}
+
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 0.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.about-container h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.about-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+/* appointment box  */
+.appointment-box-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.appointment-box {
+    background-color: #e9f5ff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.appointment-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+a.appointment-box-link,
+a.appointment-box-link:focus,
+a.appointment-box-link:visited,
+a.appointment-box-link:hover,
+a.appointment-box-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+.appointment-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.appointment-box h2 {
+    color: #007bff;
+}
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+.card h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+.card input,
+.card button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.card button {
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+.card button:hover {
+    background-color: #0077b6;
+}

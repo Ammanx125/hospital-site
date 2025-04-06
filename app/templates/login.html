@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-wrapper">
+    <form action="/login" method="POST" class="login-form">
+        <h2>Staff Login</h2>
+        <label for="username">Username</label>
+        <input type="text" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+
+        <label for="role">Login As</label>
+        <select name="role" required>
+            <option value="receptionist">Receptionist</option>
+            <option value="doctor">Doctor</option>
+        </select>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

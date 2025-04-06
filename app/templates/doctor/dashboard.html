@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2>Doctor Dashboard</h2>
+
+    <div class="patient-list">
+        <h3>Patient List</h3>
+        <ul>
+            {% for patient in patients %}
+                <li>
+                    <strong>{{ patient.name }} (Age: {{ patient.age }})</strong><br>
+                    Contact: {{ patient.contact }}<br>
+                    <form action="/update_patient/{{ loop.index }}" method="POST">
+                        <label for="notes">Add Notes:</label><br>
+                        <textarea name="notes" rows="4" cols="50">{{ patient.notes }}</textarea><br>
+                        <button type="submit">Update</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

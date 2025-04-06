@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="appointment-page">
+    <div class="card">
+        <h2>Make an Appointment</h2>
+        <form method="post">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="text" name="reason" placeholder="Reason for visit" required>
+            <input type="datetime-local" name="appointment_time" required>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
