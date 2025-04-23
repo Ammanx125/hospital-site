@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, current_app
 
 receptionist_bp = Blueprint('receptionist', __name__)
 
@@ -7,7 +7,8 @@ patients = []
 
 @receptionist_bp.route('/receptionist_dashboard')
 def receptionist_dashboard():
-    return render_template('receptionist/dashboard.html', patients=patients)
+    appointments = current_app.config['APPOINTMENTS']
+    return render_template('receptionist/dashboard.html', patients=patients, appointments=appointments)
 
 @receptionist_bp.route('/register_patient', methods=['POST'])
 def register_patient():

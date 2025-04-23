@@ -2,18 +2,32 @@
 
 {% block content %}
 <div class="chat-container">
-    <h2>Hospital Chat</h2>
-
-    <div class="chat-box">
-        <div id="messages">
-            {% for message in messages %}
-            <p><strong>{{ message.sender }}:</strong> {{ message.text }} </p>
-            {{% endfor %}}
-        </div>
-        <form action="/send_message" method="post">
-            <input type="text" name="message_text" placeholder="Type your message..." required>
-            <button type="submit">Send</button>
-        </form>
+    <div class="chat-header">Doctor &amp; Receptionist Chat</div>
+  
+    <div class="messages">
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="message {% if 'doctor' in msg.sender|lower %}sender-doctor{% else %}sender-receptionist{% endif %}">
+                    <strong>{{ msg.sender }}:</strong> {{ msg.text }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-messages">No messages yet.</p>
+        {% endif %}
     </div>
+  
+    <form class="chat-form" method="POST" action="{{ url_for('chat.chat') }}">
+        <input type="text" name="sender" placeholder="Your name" required>
+        <input type="text" name="text"   placeholder="Message" required>
+        <button type="submit">Send</button>
+    </form>
 </div>
+
+<script>
+    // auto-scroll to bottom on load
+    window.onload = () => {
+        const box = document.querySelector('.messages');
+        if (box) box.scrollTop = box.scrollHeight;
+    };
+</script>
 {% endblock %}

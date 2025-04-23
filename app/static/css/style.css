@@ -274,7 +274,7 @@ nav {
 
 .patient-list button {
     padding: 0.8rem 2rem;
-    background: #28a745;
+    background: #00b4d8;
     color: white;
     border: none;
     border-radius: 8px;
@@ -282,53 +282,97 @@ nav {
 }
 
 .patient-list button:hover {
-    background: #218838;
+    background: #0077b6;
 }
 
 
 /* chat  */
+/* ---- Chat Layout ---- */
 .chat-container {
-    max-width: 600px;
-    margin:  auto;
-    padding: 2rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
-.messages {
-    margin-bottom: 1rem;
-    max-height: 300px;
-    overflow-y: auto;
+  
+.chat-header {
+    background: #007bff;
+    color: #fff;
     padding: 1rem;
-    background-color: #f9f9f9;
+    font-size: 1.25rem;
+    text-align: center;
+}
+  
+.messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #f4f9fd;
+}
+  
+/* Message bubbles */
+.message {
+    max-width: 80%;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+  
+/* Different colors per sender */
+.message.sender-doctor {
+    background: #d1e7dd;
+    align-self: flex-end;
+}
+
+.message.sender-receptionist {
+    background: #f8d7da;
+    align-self: flex-start;
+}
+  
+/* No-messages text */
+.no-messages {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+  
+  /* Input area */
+.chat-form {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+  
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
     border-radius: 8px;
 }
-.message {
-    margin-bottom: 0.75rem;
-    padding: 0.5rem;
-    background: #e1f5fe;
-    border-radius: 6px;
+  
+.chat-form button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
-
-
-.about-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 3rem 0.5rem;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  
+.chat-form button:hover {
+    background: #0056b3;
 }
-.about-container h2 {
-    color: #007bff;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-.about-container p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
+  
 
 /* appointment box  */
 .appointment-box-link {
@@ -397,3 +441,184 @@ a.appointment-box-link:active {
 .card button:hover {
     background-color: #0077b6;
 }
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash-msg {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.flash-msg.fade-out {
+    opacity: 0;
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  color: #007bff;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.card form input {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.card form button:hover {
+  background: #0077b6;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  padding: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+/* Receptionist specific card styling */
+.receptionist .card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+  
+.receptionist .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Grid layout specific to receptionist */
+    gap: 2rem;
+    padding: 2rem;
+}
+  
+.receptionist .card form input,
+.receptionist .card form button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+
+/* logo  */
+.about-container {
+    position: relative;
+    padding: 2rem;
+}
+
+.about-container h1 {
+    color: #007bff;
+}
+
+.watermark-logo {
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background-image: url('/static/images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    pointer-events: none; 
+    z-index: 1;
+}
+  
+.about-text {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* our pictures */
+.team-section {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+}
+  
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+  
+.team-card {
+    width: 160px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+}
+  
+.team-card:hover {
+    transform: scale(1.05);
+}
+  
+.team-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+  
+.team-card h3 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+  
+.team-card p {
+    font-size: 0.9rem;
+    color: gray;
+}
+  

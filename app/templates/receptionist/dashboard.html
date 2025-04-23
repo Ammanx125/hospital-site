@@ -1,33 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="dashboard-container">
-    <h2>Receptionist Dashboard</h2>
+<div class="dashboard-grid"> <!-- This should ONLY wrap the cards -->
+  <!-- Register Patient Card -->
+  <div class="card register-card">
+    <h3>Register New Patient</h3>
+    <form action="{{ url_for('receptionist.register_patient') }}" method="POST">
+      <input type="text" name="patient_name" placeholder="Name" required>
+      <input type="number" name="patient_age" placeholder="Age" required>
+      <input type="text" name="patient_contact" placeholder="Contact" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
 
-    <div class="register-patient">
-        <h3>Register New Patient</h3>
-        <form action="/register_patient" method="POST">
-            <label for="patient_name">Name</label>
-            <input type="text" id="patient_name" name="patient_name" required>
+  <!-- Patient List Card -->
+  <div class="card list-card">
+    <h3>Patient List</h3>
+    <ul>
+      {% for p in patients %}
+        <li>{{ p.name }} ({{ p.age }} yrs) — {{ p.contact }}</li>
+      {% endfor %}
+      {% if not patients %}
+        <li>No patients yet.</li>
+      {% endif %}
+    </ul>
+  </div>
 
-            <label for="patient_age">Age</label>
-            <input type="number" id="patient_age" name="patient_age" required>
-
-            <label for="patient_contact">Contact</label>
-            <input type="text" id="patient_contact" name="patient_contact" required>
-
-            <button type="submit">Register Patient</button>
-        </form>
-    </div>
-
-    <!-- Patient List -->
-    <div class="patient-list">
-        <h3>Patient List</h3>
-        <ul>
-            {% for patient in patients %}
-                <li>{{ patient.name }} (Age: {{ patient.age }}) - Contact: {{ patient.contact }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+  <!-- Appointment List Card -->
+  <div class="card list-card">
+    <h3>Booked Appointments</h3>
+    <ul>
+      {% for appt in appointments %}
+        <li>
+          {{ appt.full_name }} — {{ appt.reason }} at {{ appt.time|format_time }}
+        </li>
+      {% endfor %}
+      {% if not appointments %}
+        <li>No appointments yet.😴 </li>
+      {% endif %}
+    </ul>
+  </div>
+</div> <!-- Closing the grid wrapper here -->
 {% endblock %}

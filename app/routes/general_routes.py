@@ -1,10 +1,18 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app
 
 general_bp = Blueprint('general', __name__)
 
 @general_bp.route('/about')
 def about():
-    return render_template('about.html')
+    team = [
+        {"name": "Aman", "role": "Backend & UI", "image": "aman.jpg"},
+        {"name": "Hani", "role": "UI Designer", "image": "hani.jpg"},
+        {"name": "Rhode", "role": "Database Design", "image": "rod.jpg"},
+        {"name": "Yeabsira", "role": "Frontend Dev", "image": "yaba.jpg"},
+        {"name": "Nuhamin", "role": "Documentation", "image": "nuha.jpg"},
+        {"name": "Ruth", "role": "Testing & Debugging", "image": "ruth.jpg"},
+    ]
+    return render_template('about.html', team=team)
 
 @general_bp.route('/')
 def home():
@@ -29,3 +37,25 @@ def redirect_to_chat():
 @general_bp.route('/make_appointment')
 def make_appointment():
     return render_template('appointment/make_appointment.html')
+
+appointments = []
+
+@general_bp.route('/handle_appointment', methods=['POST'])
+def handle_appointment():
+    full_name = request.form['full_name']
+    reason = request.form['reason']
+    time = request.form.get('time')
+
+    if not time:
+        flash("Time is required, my guy 👀", "error")
+        return redirect(url_for('general.make_appointment'))
+
+    new_appointment = {
+        'full_name': full_name,
+        'reason': reason,
+        'time': time
+    }
+
+    current_app.config['APPOINTMENTS'].append(new_appointment)
+    flash('Appointment booked successfully!', 'success')
+    return redirect(url_for('general.make_appointment'))

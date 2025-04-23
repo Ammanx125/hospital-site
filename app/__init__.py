@@ -1,8 +1,12 @@
 from flask import Flask
+from .utils import format_time
 
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'super_secret_key'
+    app.config['APPOINTMENTS'] = []
+    app.config.setdefault('MESSAGES', [])
+    app.jinja_env.filters['format_time'] = format_time
 
     from .routes.auth_routes import auth
     from .routes.receptionist_routes import receptionist_bp

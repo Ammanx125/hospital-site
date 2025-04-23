@@ -2,8 +2,31 @@
 
 {% block content %}
 <div class="about-container">
-    <h2>About Our Hospital</h2>
-    <p>Welcome to our Hospital. We provide the best medical service in Addis Ababa.</p>
-    <p>location: somewere</p>
+    <div class="watermark-logo"></div>
+
+    <h1>About Our Hospital</h1>
+    <h2>Our story</h2>
+    <p>It all started in 2006 when Hallelujah Center for internal Medicine and Chest 
+        disease PLC was established and become formally operational in 2007 on Bole Road in 
+        front of Bole Printing Press. It has changed its name to Hallelujah Higher Medical 
+        Clinic PLC in 2010. Since then, the clinic has been providing medical and consultation 
+        services in General Medicine and Pulmonary Medicine in particular. Until 2013, Professor 
+        Getachew Aderaye was the only qualified pulmonologist in the country. Hallelujah Higher Medical 
+        Clinic was the only private center to provide such a service in specialized field. Due to the increase in 
+        demand of medical services, the company planned and constructed a G+6 Building (which is an eight-story building 
+        including the basement and ground floors) equipped with latest medical equipment’s, at the center of Addis.</p>
+
+    <div class="team-section">
+        <h2 style="color: #007bff;">Meet The Team 💼</h2>
+        <div class="team-grid">
+          {% for member in team %}
+          <div class="team-card">
+            <img src="{{ url_for('static', filename='images/team/' + member.image) }}" alt="{{ member.name }}">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}

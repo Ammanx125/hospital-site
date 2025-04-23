@@ -8,7 +8,7 @@
         <link rel="preconnect" href="htpps://fonts.googleapis.com">
         <link href="htpps://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="{{ request.endpoint.split('.')[0] }}">
         <nav>
             <div class="logo">Hallelujah Hospital</div>
             <ul class="nav-links">
@@ -24,5 +24,25 @@
         <div class="container">
             {% block content %}{% endblock %}
         </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="flash-msg {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
     </body>
 </html>
+
+<script>
+    setTimeout(() => {
+      const flashBoxes = document.querySelectorAll('.flash-msg');
+      flashBoxes.forEach(box => {
+        box.classList.add('fade-out');
+      });
+    }, 3000); // 3 seconds
+</script>
+  
+  
