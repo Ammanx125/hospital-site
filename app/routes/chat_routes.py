@@ -1,8 +1,11 @@
 from flask import Blueprint, render_template, request, redirect, url_for, current_app, flash
+from ..routes.auth_routes import login_required
+
 
 chat_bp = Blueprint('chat', __name__)
 
 @chat_bp.route('/chat', methods=['GET', 'POST'])
+@login_required()
 def chat():
     # Initialize shared list if not present
     messages = current_app.config.setdefault('MESSAGES', [])

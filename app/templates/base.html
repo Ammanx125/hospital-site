@@ -15,9 +15,14 @@
                 <li><a href="{{ url_for('general.home') }}">Home</a></li>
                 <li><a href="{{ url_for('general.about') }}">About</a></li>
                 <li><a href="{{ url_for('general.contact') }}">Contact</a></li>
-                <li><a href="{{ url_for('receptionist.receptionist_dashboard') }}">Reseptionist</a></li>
-                <li><a href="{{ url_for('doctor.doctor_dashboard') }}">Doctor</a></li>
-                <li><a href="{{ url_for('chat.chat') }}">Chat</a></li>
+                {% if session.get('username') %}
+                  <li><a href="{{ url_for('receptionist.receptionist_dashboard') }}">Receptionist</a></li>
+                  <li><a href="{{ url_for('doctor.doctor_dashboard') }}">Doctor</a></li>
+                  <li><a href="{{ url_for('chat.chat') }}">Chat</a></li>
+                  <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% else %}
+                  <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
 

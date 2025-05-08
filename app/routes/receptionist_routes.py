@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, current_app
+from ..routes.auth_routes import login_required
 
 receptionist_bp = Blueprint('receptionist', __name__)
 
@@ -6,6 +7,7 @@ receptionist_bp = Blueprint('receptionist', __name__)
 patients = []
 
 @receptionist_bp.route('/receptionist_dashboard')
+@login_required('receptionist')
 def receptionist_dashboard():
     appointments = current_app.config['APPOINTMENTS']
     return render_template('receptionist/dashboard.html', patients=patients, appointments=appointments)

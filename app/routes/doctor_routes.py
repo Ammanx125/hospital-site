@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from ..routes.auth_routes import login_required
 
 doctor_bp = Blueprint('doctor', __name__)
 
@@ -9,6 +10,7 @@ patients = [
 ]
 
 @doctor_bp.route('/doctor_dashboard')
+@login_required('doctor')
 def doctor_dashboard():
     return render_template('doctor/dashboard.html', patients=patients)
 

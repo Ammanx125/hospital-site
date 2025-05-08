@@ -6,11 +6,11 @@ general_bp = Blueprint('general', __name__)
 def about():
     team = [
         {"name": "Aman", "role": "Backend & UI", "image": "aman.jpg"},
-        {"name": "Hani", "role": "UI Designer", "image": "hani.jpg"},
-        {"name": "Rhode", "role": "Database Design", "image": "rod.jpg"},
+        {"name": "Hani", "role": "Page Designer", "image": "hani.jpg"},
+        {"name": "Rhode", "role": "Page Designer", "image": "rod.jpg"},
         {"name": "Yeabsira", "role": "Frontend Dev", "image": "yaba.jpg"},
-        {"name": "Nuhamin", "role": "Documentation", "image": "nuha.jpg"},
-        {"name": "Ruth", "role": "Testing & Debugging", "image": "ruth.jpg"},
+        {"name": "Nuhamin", "role": "Proposal Writing", "image": "nuha.jpg"},
+        {"name": "Ruth", "role": "Proposal Writing", "image": "ruth.jpg"},
     ]
     return render_template('about.html', team=team)
 
