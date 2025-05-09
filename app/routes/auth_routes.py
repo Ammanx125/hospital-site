@@ -6,7 +6,7 @@ auth_bp = Blueprint('auth', __name__)
 # Dummy user store; in production use a real database
 users = {
     "abc": {"password": "123", "role": "receptionist"},
-    "asd": {"password": "123", "role": "doctor"}
+    "abcd": {"password": "123", "role": "doctor"}
 }
 
 def login_required(role=None):
